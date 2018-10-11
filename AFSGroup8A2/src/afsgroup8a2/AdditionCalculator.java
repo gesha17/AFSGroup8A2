@@ -31,43 +31,8 @@ public class AdditionCalculator extends Calculator {
     			result[i] = result[i] + p;
     		}
     	}
-
+    	result = removeLeadingZeros(result);
     	return result;
-    }
-
-    //subtracts y from x modulo integer p
-    void subPolynomials(int[] x, int[] y, int p) {
-    	y = flipSigns(y);
-    	addPolynomials(x, y, p);
-    }
-    
-    //adds leading zeros to the polynomial (so x^l exists with coefficent 0 while calculating)
-    int[] paddAtoL(int[] a, int l)	{
-    	
-    	//To avoid crashes on wrong input
-    	if (l <= a.length)	{
-    		return a;
-    	}
-    	
-    	//Initialize resulting array with only zeros
-    	int[] r = new int[l];
-        for (int i = 0; i < l; i++) {
-            r[i] = 0;
-        }
-        
-        //fill applicable values of a into r
-        for (int i = 1; i <= a.length; i++)	{
-        	r[r.length-i] = a[a.length-i];    	
-        }
-        return r;
-    }
-    
-    //flips the sign of each coefficient in an int[]
-    int[] flipSigns(int[] a)	{
-    	for (int i = 0; i < a.length; i++) {
-    		a[i] = 0 - a[i];
-    	}
-    	return a;
     }
     
     @Override

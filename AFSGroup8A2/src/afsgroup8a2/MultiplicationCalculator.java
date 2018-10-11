@@ -41,6 +41,7 @@ public class MultiplicationCalculator extends Calculator {
     			result[result.length - 1 - pow] = result[result.length - 1 - pow] + c;	//stores the coefficient at the correct position in the resulting array
     		}
     	}
+    	result = removeLeadingZeros(result);
     	return result;
     }
 

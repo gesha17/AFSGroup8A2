@@ -15,10 +15,6 @@ import afsgroup8a2.Operation.OperationType;
  */
 public class AFSGroup8A2 {
 
-    /**
-     * @param args the command line arguments
-     */
-    
     void init(){
     	int[] f = {1, 0, 1};
     	int[] g = {1, 0, 1};
@@ -29,7 +25,7 @@ public class AFSGroup8A2 {
     	o.f = f;
     	o.g = g;
     	o.p = p;
-    	o.type = OperationType.Multiply;
+    	o.type = OperationType.Subtract;
     	Calculator.doCalculation(o);
     	System.out.println(Arrays.toString(o.answer));	
     }

@@ -5,6 +5,10 @@
  */
 package afsgroup8a2;
 
+import javax.jws.Oneway;
+
+import afsgroup8a2.Operation.OperationType;
+
 /**
  *
  * @author s165700
@@ -15,9 +19,19 @@ public class SubtractionCalculator extends Calculator {
         super(o);
     }
 
+    //subtracts y from x modulo integer p
+    int[] subPolynomials(int[] x, int[] y, int p) {
+    	y = flipSigns(y);
+    	Operation oNew = o;
+    	oNew.g = y;
+    	oNew.type = OperationType.Add;
+    	Calculator.doCalculation(oNew);
+    	return oNew.answer;
+    }
+    
     @Override
     void calculate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        o.answer = subPolynomials(o.f, o.g, o.p);
     }
     
 }

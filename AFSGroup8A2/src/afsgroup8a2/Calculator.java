@@ -18,6 +18,57 @@ public abstract class Calculator {
     	this.o = o;
     }
     
+    //flips the sign of each coefficient in an int[]
+    int[] flipSigns(int[] a)	{
+    	for (int i = 0; i < a.length; i++) {
+    		a[i] = 0 - a[i];
+    	}
+    	return a;
+    }
+    
+    //adds leading zeros to the polynomial (so x^l exists with coefficent 0 while calculating)
+    int[] paddAtoL(int[] a, int l)	{
+    	
+    	//To avoid crashes on wrong input
+    	if (l <= a.length)	{
+    		return a;
+    	}
+    	
+    	//Initialize resulting array with only zeros
+    	int[] r = new int[l];
+        for (int i = 0; i < l; i++) {
+            r[i] = 0;
+        }
+        
+        //fill applicable values of a into r
+        for (int i = 1; i <= a.length; i++)	{
+        	r[r.length-i] = a[a.length-i];    	
+        }
+        return r;
+    }
+    
+    //removes any leading zero coefficents from a polynomial
+    int[] removeLeadingZeros(int[] a)	{
+    	
+    	//find out how many leading zeros there are
+    	int i = 0;
+    	while (a[i] == 0)	{
+    		i++;
+    		if (i == a.length-1)	{
+    			break;
+    		}
+    	}
+    	
+    	//create new array with i less elements
+    	int[] b = new int[a.length-i];
+    	
+    	//fill new array with old values
+    	for (int j = 0; j < b.length; j++)	{
+    		b[b.length-1-j] = a[a.length-1-j];
+    	}
+    	return b;
+    }
+    
     abstract void calculate();
     
     static void doCalculation(Operation o){
