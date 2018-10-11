@@ -5,6 +5,8 @@
  */
 package afsgroup8a2;
 
+import afsgroup8a2.Operation.OperationType;
+
 /**
  *
  * @author s165700
@@ -14,8 +16,14 @@ public class AFSGroup8A2 {
     /**
      * @param args the command line arguments
      */
+    
+    void init(){
+    }
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        AFSGroup8A2 program = new AFSGroup8A2();
+        program.init();
     }
     
 }
