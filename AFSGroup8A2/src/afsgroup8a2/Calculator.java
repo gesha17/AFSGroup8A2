@@ -5,6 +5,8 @@
  */
 package afsgroup8a2;
 
+import java.util.Arrays;
+
 /**
  *
  * @author s165700
@@ -13,7 +15,7 @@ public abstract class Calculator {
     Operation o;
     
     Calculator(Operation o){
-        
+    	this.o = o;
     }
     
     abstract void calculate();

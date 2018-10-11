@@ -5,6 +5,8 @@
  */
 package afsgroup8a2;
 
+import java.util.Arrays;
+
 import afsgroup8a2.Operation.OperationType;
 
 /**
@@ -18,6 +20,18 @@ public class AFSGroup8A2 {
      */
     
     void init(){
+    	int[] f = {1, 0, 1};
+    	int[] g = {1, 0, 1};
+    	int p = 100;
+    	
+    	
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.g = g;
+    	o.p = p;
+    	o.type = OperationType.Multiply;
+    	Calculator.doCalculation(o);
+    	System.out.println(Arrays.toString(o.answer));	
     }
     
     
