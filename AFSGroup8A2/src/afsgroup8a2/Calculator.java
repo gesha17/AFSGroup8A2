@@ -7,6 +7,8 @@ package afsgroup8a2;
 
 import java.util.Arrays;
 
+import afsgroup8a2.Operation.OperationType;
+
 /**
  *
  * @author s165700
@@ -16,6 +18,36 @@ public abstract class Calculator {
     
     Calculator(Operation o){
     	this.o = o;
+    }
+    
+    int[] add(int[] f, int[] g, int p)	{
+	    Operation o = new Operation();
+		o.f = f;
+		o.g = g;
+		o.p = p;
+		o.type = OperationType.Add;
+		Calculator.doCalculation(o);
+		return o.answer;
+    }
+    
+    int[] sub(int[] f, int[] g, int p)	{
+	    Operation o = new Operation();
+		o.f = f;
+		o.g = g;
+		o.p = p;
+		o.type = OperationType.Subtract;
+		Calculator.doCalculation(o);
+		return o.answer;
+    }
+    
+    int[] mul(int[] f, int[] g, int p)	{
+	    Operation o = new Operation();
+		o.f = f;
+		o.g = g;
+		o.p = p;
+		o.type = OperationType.Multiply;
+		Calculator.doCalculation(o);
+		return o.answer;
     }
     
     //flips the sign of each coefficient in an int[]
