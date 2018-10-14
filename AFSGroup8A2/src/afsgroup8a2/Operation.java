@@ -17,6 +17,8 @@ public class Operation {
     int g[];
     int h[];
     int p;
+    int d;
+    boolean answerboolean;
     int answer[];
     int answerq[];
     int answerr[];

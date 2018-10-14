@@ -50,6 +50,20 @@ public abstract class Calculator {
 		return o.answer;
     }
     
+    boolean isIrreducible(int[] f, int p)	{
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.p = p;
+    	o.type = OperationType.Irreducible;
+    	Calculator.doCalculation(o);
+    	return o.answerboolean;
+    }
+    
+    int degree(int[] a)	{
+    	a = removeLeadingZeros(a);
+    	return (a.length - 1);
+    }
+    
     //flips the sign of each coefficient in an int[]
     int[] flipSigns(int[] a)	{
     	for (int i = 0; i < a.length; i++) {
