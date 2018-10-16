@@ -36,42 +36,17 @@ public class MultiplicationCalculator extends Calculator {
     		//iterate over all coefficients in y starting at the end
     		for (int j = y.length - 1; j >= 0; j--)	{
 				c = (x[i] * y[j]) % p; //modular multiplication of integers
-    			pow = i + j;		//add the powers when multiplying
+    			pow = (x.length - 1 - i) + (y.length - 1 - j);		//add the powers when multiplying
     			result = paddAtoL(result, pow + 1);	//padd the resulting array to pow + 1 to fit the newly created power of x
-    			result[result.length - 1 - pow] = result[result.length - 1 - pow] + c;	//stores the coefficient at the correct position in the resulting array
+    			result[result.length - 1 - pow] = (result[result.length - 1 - pow] + c) % p;	//stores the coefficient at the correct position in the resulting array
+    			if (result[result.length - 1 - pow] < 0)	{
+    				result[result.length - 1 - pow] = result[result. length - 1 - pow] + p;
+    			}
     		}
     	}
     	result = removeLeadingZeros(result);
     	return result;
-    }
-
-    int[] paddAtoL(int[] a, int l)	{
-    	
-    	//To avoid crashes on wrong input
-    	if (l <= a.length)	{
-    		return a;
-    	}
-    	
-    	//Initialize resulting array with only zeros
-    	int[] r = new int[l];
-        for (int i = 0; i < l; i++) {
-            r[i] = 0;
-        }
-        
-        //fill applicable values of a into r
-        for (int i = 1; i <= a.length; i++)	{
-        	r[r.length-i] = a[a.length-i];    	
-        }
-        return r;
-    }
-    
-    //flips the sign of each coefficient in an int[]
-    int[] flipSigns(int[] a)	{
-    	for (int i = 0; i < a.length; i++) {
-    		a[i] = 0 - a[i];
-    	}
-    	return a;
-    }    
+    } 
     
     @Override
     void calculate() {
