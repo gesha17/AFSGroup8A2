@@ -95,7 +95,9 @@ public abstract class Calculator {
     
     //removes any leading zero coefficents from a polynomial
     int[] removeLeadingZeros(int[] a)	{
-    	
+    	if (a.length == 1) {
+            return a;
+        }
     	//find out how many leading zeros there are
     	int i = 0;
     	while (a[i] == 0)	{
