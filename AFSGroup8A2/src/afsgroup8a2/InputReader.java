@@ -27,10 +27,14 @@ public class InputReader {
         }
         if(sc != null){
             Operation o = new Operation();
+            o.type = null;
             while(sc.hasNext()){
                 String input = sc.next();
                 switch(input){
                     case "[mod]":
+                        if(o.type != null){
+                            operations.add(o);
+                        }
                         o = new Operation();
                         o.mod = Integer.valueOf(sc.next());
                         break;
@@ -114,21 +118,22 @@ public class InputReader {
                         break;
                     case "[b]":
                         o.b = strToInt(sc.next());
-                
                 }
             }
         }
-        
         return operations;
     }
     
     
     
     private int[] strToInt(String str){
+        if(str.length() == 2){
+            return null;
+        }
         int[] array = new int[(int) str.length()/2];
         for(int i=0; i< str.length();i++){
             if(!String.valueOf(str.charAt(i)).equals("{") && !String.valueOf(str.charAt(i)).equals("}") && !String.valueOf(str.charAt(i)).equals(",")){
-                array[i] = Integer.valueOf(str.charAt(i));
+                array[(int) i /2] = Integer.valueOf(str.charAt(i));
             }
         }
         return array;

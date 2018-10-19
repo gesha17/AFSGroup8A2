@@ -5,10 +5,16 @@
  */
 package afsgroup8a2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author s165700
  */
 public class OutputWriter {
+    
+    void writeOutput(ArrayList<Operation> operations){
+        
+    }
     
 }

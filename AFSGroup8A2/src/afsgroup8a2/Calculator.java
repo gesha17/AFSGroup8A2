@@ -176,6 +176,42 @@ public abstract class Calculator {
             case FindIrred:
                 new FindIrredCalculator(o).calculate();
                 break;
+            case EqualsPolyMod:
+                new EqualsPolyModCalculator(o).calculate();
+                break;
+            case AddTable:
+                new AddTableCalculator(o).calculate();
+                break;
+            case MultTable:
+                new MultTableCalculator(o).calculate();
+                break;
+            case DisplayField:
+                new DisplayFieldCalculator(o).calculate();
+                break;
+            case AddField:
+                new AddFieldCalculator(o).calculate();
+                break;
+            case SubtractField:
+                new SubtractFieldCalculator(o).calculate();
+                break;
+            case MultField:
+                new MultFieldCalculator(o).calculate();
+                break;
+            case InverseField:
+                new InverseFieldCalculator(o).calculate();
+                break;
+            case DivisionField:
+                new DivisionFieldCalculator(o).calculate();
+                break;
+            case EqualsField:
+                new EqualsFieldCalculator(o).calculate();
+                break;
+            case Primitive:
+                new PrimitiveCalculator(o).calculate();
+                break;
+            case FindPrim:
+                new FindPrimCalculator(o).calculate();
+                break;
         }
     }
 }

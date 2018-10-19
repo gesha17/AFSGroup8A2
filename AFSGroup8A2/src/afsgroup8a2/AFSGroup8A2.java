@@ -8,6 +8,7 @@ package afsgroup8a2;
 import java.util.Arrays;
 
 import afsgroup8a2.Operation.OperationType;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,7 +17,24 @@ import afsgroup8a2.Operation.OperationType;
 public class AFSGroup8A2 {
 
     void init(){
-    	int[] f = {1,1,1};
+        InputReader reader = new InputReader();
+    	ArrayList<Operation> operations = reader.getInput();
+        for(Operation o : operations){
+            Calculator.doCalculation(o);
+        }
+        OutputWriter writer = new OutputWriter();
+        writer.writeOutput(operations);
+    }
+    
+    
+    public static void main(String[] args) {
+        AFSGroup8A2 program = new AFSGroup8A2();
+        //program.init();
+        program.test();
+    }
+    
+    void test(){
+        int[] f = {1,1,1};
     	int[] g = {2,-2};
     	int p = 2;
     	int d = 3;
@@ -29,12 +47,6 @@ public class AFSGroup8A2 {
     	o.type = OperationType.FindIrred;
     	Calculator.doCalculation(o);
     	System.out.println(Arrays.toString(o.answer));
-    }
-    
-    
-    public static void main(String[] args) {
-        AFSGroup8A2 program = new AFSGroup8A2();
-        program.init();
     }
     
 }
