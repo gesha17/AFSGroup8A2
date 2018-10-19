@@ -21,8 +21,9 @@ public class FindIrredCalculator extends Calculator {
     	
     	do	{
     		
+    		result[0] = (int) (Math.floor(Math.random() * (p-1) + 1));
     		//fill result with random coefficients between 0 and p
-    		for (int i = 0; i < result.length; i++)	{
+    		for (int i = 1; i < result.length; i++)	{
     			result[i] = (int) (Math.floor(Math.random() * p));
     		}
     		
@@ -35,8 +36,6 @@ public class FindIrredCalculator extends Calculator {
     
     @Override
     void calculate() {
-    	//doFindIrreducible(o.d, o.p);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    	doFindIrreducible(o.d, o.p);
+    }    
 }

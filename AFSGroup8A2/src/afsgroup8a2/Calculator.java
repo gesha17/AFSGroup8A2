@@ -50,6 +50,36 @@ public abstract class Calculator {
 		return o.answer;
     }
     
+    int[] div(int[] f, int[] g, int p, String a)	{
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.g = g;
+    	o.p = p;
+    	o.type = OperationType.LongDiv;
+    	Calculator.doCalculation(o);
+    	if (a.equals("r"))	{
+    		return o.answerr;
+    	} else {
+    		return o.answerq;
+    	}
+    }
+    
+    int[] euclid(int[] f, int[] g, int p, String a)	{
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.g = g;
+    	o.p = p;
+    	o.type = OperationType.Euclid;
+    	Calculator.doCalculation(o);
+    	if (a.equals("a"))	{
+    		return o.answera;
+    	} else if (a.equals("b"))	{
+    		return o.answerb;
+    	} else	{
+    		return o.answerd;
+    	}
+    }
+    
     boolean isIrreducible(int[] f, int p)	{
     	Operation o = new Operation();
     	o.f = f;

@@ -18,17 +18,17 @@ public class AFSGroup8A2 {
     void init(){
     	int[] f = {1,1,1};
     	int[] g = {2,-2};
-    	int p = 7;
-    	
+    	int p = 2;
+    	int d = 3;
     	
     	Operation o = new Operation();
     	o.f = f;
     	o.g = g;
     	o.p = p;
-    	o.type = OperationType.LongDiv;
+    	o.d = d;
+    	o.type = OperationType.FindIrred;
     	Calculator.doCalculation(o);
     	System.out.println(Arrays.toString(o.answer));
-        
     }
     
     

@@ -89,6 +89,8 @@ public class LongDivCalculator extends Calculator {
     @Override
     void calculate() {
         o.answer = longDivision(o.f, o.g, o.p);
+        o.answerq = quot;
+        o.answerr= rem;
     }
     
 }

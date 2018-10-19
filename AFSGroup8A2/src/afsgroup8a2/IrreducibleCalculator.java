@@ -26,7 +26,7 @@ public class IrreducibleCalculator extends Calculator {
     	//initialize f2 = x^p^t - x
     	f2 = createF2(t, p);
     	
-    	while (Arrays.equals(gcd(f, f2), one)) {	//TODO
+    	while (Arrays.equals(euclid(f, f2, p, "d"), one)) {
     		t = t + 1;
     		
     		//update f2
@@ -45,14 +45,12 @@ public class IrreducibleCalculator extends Calculator {
     int[] createF2(int t, int p)	{
     	int[] r = new int[(int) (Math.pow(p, t)+1)];	//Create array of degree q^t
     	r[0] = 1;										//x^q^t has coefficient 1
-    	r[r.length-1] = -1;								//x has coefficient -1
+    	r[r.length-2] = -1;								//x has coefficient -1
     	return r;
     }
     
     @Override
     void calculate() {
-    	//doIsIrreducible(o.f, o.p);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    	doIsIrreducible(o.f, o.p);
+    }    
 }

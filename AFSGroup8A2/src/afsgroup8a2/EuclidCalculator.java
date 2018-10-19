@@ -28,8 +28,8 @@ public class EuclidCalculator extends Calculator {
     	while (b.length-1 != 0 || b[0] != 0)	{
     		
     		//get q and r from division of a over b
-    		q = qout(a, b); //TODO
-    		r = rem(a, b); //TODO
+    		q = div(a, b, p, "q");
+    		r = div(a, b, p, "r");
     		a = b;
     		b = r;
     		x2 = x;
@@ -50,8 +50,6 @@ public class EuclidCalculator extends Calculator {
     
     @Override
     void calculate() {
-        //doEuclid(o.f, o.g, o.p);
-    	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        doEuclid(o.f, o.g, o.p);
+    }    
 }
