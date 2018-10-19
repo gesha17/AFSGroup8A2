@@ -16,7 +16,7 @@ import afsgroup8a2.Operation.OperationType;
 public class AFSGroup8A2 {
 
     void init(){
-    	int[] f = {4,0};
+    	int[] f = {1,1,1};
     	int[] g = {2,-2};
     	int p = 7;
     	
@@ -25,7 +25,7 @@ public class AFSGroup8A2 {
     	o.f = f;
     	o.g = g;
     	o.p = p;
-    	o.type = OperationType.Multiply;
+    	o.type = OperationType.LongDiv;
     	Calculator.doCalculation(o);
     	System.out.println(Arrays.toString(o.answer));
         
