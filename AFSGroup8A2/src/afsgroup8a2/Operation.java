@@ -11,8 +11,10 @@ package afsgroup8a2;
  */
 public class Operation {
     
-    public enum OperationType {Display,Add,Subtract,Multiply,LongDiv,Euclid,Irreducible,FindIrred};
+    int mod;
+    public enum OperationType {Display,Add,Subtract,Multiply,LongDiv,Euclid,Irreducible,FindIrred, EqualsPolyMod, AddTable, MultTable, DisplayField, AddField, SubtractField,MultField, InverseField, DivisionField,EqualsField,Primitive,FindPrim,};
     OperationType type;
+    int modPoly[];
     int f[];
     int g[];
     int h[];
@@ -26,6 +28,8 @@ public class Operation {
     int answerb[];
     int answerd[];
     int degree;
+    int a[];
+    int b[];
     
     
     
