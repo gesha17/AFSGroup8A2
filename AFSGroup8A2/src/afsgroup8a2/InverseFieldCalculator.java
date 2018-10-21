@@ -5,6 +5,8 @@
  */
 package afsgroup8a2;
 
+import java.util.Arrays;
+
 /**
  *
  * @author s165700
@@ -15,9 +17,18 @@ public class InverseFieldCalculator extends Calculator {
         super(o);
     }
 
-    @Override
-    void calculate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //finds the inverse of a + (d) in field Fp[x]/(d) (Algorithm 2.3.3) or returns null if it does not exist
+    int[] findInverse(int[] a, int[] d, int p)	{
+    	int[] one = {1};
+    	if (Arrays.equals(euclid(a, d, p, "d"), one))	{
+    		return euclid(a, d, p, "a");
+    	} else	{
+    		return null;
+    	}
     }
     
+    @Override
+    void calculate() {
+    	o.answer = findInverse(o.a, o.modPoly, o.p);
+    }
 }
