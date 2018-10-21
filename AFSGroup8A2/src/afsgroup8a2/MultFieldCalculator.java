@@ -15,9 +15,14 @@ public class MultFieldCalculator extends Calculator {
         super(o);
     }
 
-    @Override
-    void calculate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    int[] doMultField(int[] a, int[] b, int p, int[] modPoly)	{
+    	int[] result = mul(a, b, p);
+    	result = div(result, modPoly, p, "r");
+    	return result;
     }
     
+    @Override
+    void calculate() {
+        o.answer = doMultField(o.a, o.b, o.p, o.modPoly);
+    }    
 }

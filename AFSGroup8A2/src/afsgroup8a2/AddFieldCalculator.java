@@ -15,9 +15,15 @@ public class AddFieldCalculator extends Calculator {
         super(o);
     }
 
-    @Override
-    void calculate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //Does addition and then reduces by modPoly
+    int[] doAddField(int[] a, int[] b, int p, int[] modPoly) {
+    	int[] result = add(a, b, p);
+    	result = div(result, modPoly, p, "r");
+    	return result;
     }
     
+    @Override
+    void calculate() {
+    	o.answer = doAddField(o.a, o.b, o.p, o.modPoly);
+    }    
 }
