@@ -43,9 +43,9 @@ public class EuclidCalculator extends Calculator {
     	//TODO deal with negative numbers
     	
     	//pass answers to operator object
-    	o.answera = x;
-    	o.answerb = y;
-    	o.answerd = a;
+    	o.answera = removeLeadingZeros(x);
+    	o.answerb = removeLeadingZeros(y);
+    	o.answerd = removeLeadingZeros(a);
     }
     
     @Override

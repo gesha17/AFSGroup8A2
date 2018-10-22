@@ -19,7 +19,7 @@ public class AddFieldCalculator extends Calculator {
     int[] doAddField(int[] a, int[] b, int p, int[] modPoly) {
     	int[] result = add(a, b, p);
     	result = div(result, modPoly, p, "r");
-    	return result;
+    	return removeLeadingZeros(result);
     }
     
     @Override

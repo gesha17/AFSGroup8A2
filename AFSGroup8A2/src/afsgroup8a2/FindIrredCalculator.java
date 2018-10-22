@@ -31,7 +31,7 @@ public class FindIrredCalculator extends Calculator {
     	} while (!isIrreducible(result, p));
     	
     	//return polynomial if it is irreducible;
-    	o.answer = result;
+    	o.answer = removeLeadingZeros(result);
     }
     
     @Override

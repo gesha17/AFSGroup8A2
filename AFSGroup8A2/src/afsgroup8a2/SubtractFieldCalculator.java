@@ -18,7 +18,7 @@ public class SubtractFieldCalculator extends Calculator {
     int[] doSubtractField(int[] a, int[] b, int p, int[] modPoly)	{
     	int[] result = sub(a, b, p);
     	result = div(result, modPoly, p, "r");
-    	return result;
+    	return removeLeadingZeros(result);
     }
     
     @Override

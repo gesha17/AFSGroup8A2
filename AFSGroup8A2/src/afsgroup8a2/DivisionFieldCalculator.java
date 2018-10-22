@@ -21,7 +21,7 @@ public class DivisionFieldCalculator extends Calculator {
     	b = div(b, modPoly, p, "r");
     	int[] inverse = inverse(b, p, modPoly);
     	int[] result = fieldMul(a, inverse, p, modPoly);
-    	return result;
+    	return removeLeadingZeros(result);
     }
     
     @Override

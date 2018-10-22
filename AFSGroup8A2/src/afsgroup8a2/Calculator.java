@@ -89,12 +89,33 @@ public abstract class Calculator {
     	return o.answerboolean;
     }
     
+    boolean isPrimitive(int[] a, int p, int[] modPoly)	{
+    	Operation o = new Operation();
+    	o.a = a;
+    	o.p = p;
+    	o.modPoly = modPoly;
+    	o.type = OperationType.Primitive;
+    	Calculator.doCalculation(o);
+    	return o.answerboolean;
+    }
+    
     int[] inverse(int[] a, int p, int[] modPoly)	{
     	Operation o = new Operation();
     	o.a = a;
     	o.p = p;
     	o.modPoly = modPoly;
     	o.type = OperationType.InverseField;
+    	Calculator.doCalculation(o);
+    	return o.answer;
+    }
+    
+    int[] fieldSub(int[] a, int[] b, int p, int[] modPoly)	{
+    	Operation o = new Operation();
+    	o.a = a;
+    	o.b = b;
+    	o.p = p;
+    	o.modPoly = modPoly;
+    	o.type = OperationType.SubtractField;
     	Calculator.doCalculation(o);
     	return o.answer;
     }

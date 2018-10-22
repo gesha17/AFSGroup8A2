@@ -18,7 +18,7 @@ public class MultFieldCalculator extends Calculator {
     int[] doMultField(int[] a, int[] b, int p, int[] modPoly)	{
     	int[] result = mul(a, b, p);
     	result = div(result, modPoly, p, "r");
-    	return result;
+    	return removeLeadingZeros(result);
     }
     
     @Override
