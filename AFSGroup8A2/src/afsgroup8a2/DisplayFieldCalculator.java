@@ -15,9 +15,14 @@ public class DisplayFieldCalculator extends Calculator{
         super(o);
     }
 
-    @Override
-    void calculate() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //returns a (string) representative of a in field Fp[x]/modPoly
+    String doDisplayField(int[] a, int p, int[] modPoly)	{
+    	int[] reduction = div(a, modPoly, p, "r");
+    	return display(reduction);
     }
     
+    @Override
+    void calculate() {
+       o.answerstring = doDisplayField(o.a, o.p, o.modPoly);
+    }
 }

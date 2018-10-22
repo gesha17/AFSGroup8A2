@@ -21,6 +21,8 @@ public class Operation {
     int p;
     int d;
     boolean answerboolean;
+    int answertable[][][];
+    String answerstring;
     int answer[];
     int answerq[];
     int answerr[];
@@ -30,6 +32,7 @@ public class Operation {
     int degree;
     int a[];
     int b[];
+
     
     
     

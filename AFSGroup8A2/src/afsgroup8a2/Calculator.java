@@ -109,6 +109,17 @@ public abstract class Calculator {
     	return o.answer;
     }
     
+    int[] fieldAdd(int[] a, int[] b, int p, int[] modPoly)	{
+    	Operation o = new Operation();
+    	o.a = a;
+    	o.b = b;
+    	o.p = p;
+    	o.modPoly = modPoly;
+    	o.type = OperationType.AddField;
+    	Calculator.doCalculation(o);
+    	return o.answer;
+    }
+    
     int[] fieldSub(int[] a, int[] b, int p, int[] modPoly)	{
     	Operation o = new Operation();
     	o.a = a;
@@ -129,6 +140,14 @@ public abstract class Calculator {
     	o.type = OperationType.MultField;
     	Calculator.doCalculation(o);
     	return o.answer;
+    }
+    
+    String display(int[] f)	{
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.type = OperationType.Display;
+    	Calculator.doCalculation(o);
+    	return o.answerstring;
     }
     
     int degree(int[] a)	{
