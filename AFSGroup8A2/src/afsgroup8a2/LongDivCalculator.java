@@ -18,7 +18,11 @@ public class LongDivCalculator extends Calculator {
     int quot [];
     int rem [];
     
-    int[] longDivision(int[] r, int[] b, int p) {
+    int[] longDivision(int[] _r, int[] b, int p) {
+        int[] r = new int[_r.length];
+        for(int i =0; i< _r.length; i++){
+            r[i] = _r[i];
+        }
         int[] q = new int[r.length]; // quotient
         // fill q with 0's initially
         for (int i = 0; i < q.length; i++) {
@@ -93,7 +97,7 @@ public class LongDivCalculator extends Calculator {
         } else {
             o.answer = longDivision(o.f, o.g, o.p);
             o.answerq = removeLeadingZeros(quot);
-            o.answerr= removeLeadingZeros(rem);
+            o.answerr = removeLeadingZeros(rem);
         }
     }
     

@@ -25,10 +25,10 @@ public class PrimitiveCalculator extends Calculator {
     	int[] originalA = a;
     	int[] one = {1};
     	for (int i = 1; i < n; i++)	{
-    		System.out.println(i);
+    		//System.out.println(i);
     		//if a^i equals 1 in the field return false (as long as i <= q - 1
     		a = div(a, modPoly, p, "r");
-    		System.out.println(Arrays.toString(a));
+    		//System.out.println(Arrays.toString(a));
     		if (Arrays.equals(a, one))	{
     			return false;
     		} else {

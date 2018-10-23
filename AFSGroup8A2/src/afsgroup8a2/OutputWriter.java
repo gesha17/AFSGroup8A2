@@ -20,28 +20,49 @@ public class OutputWriter {
     void writeOutput(ArrayList<Operation> operations){
         try {
             PrintWriter writer = new PrintWriter(new FileWriter("output.txt", true));
+            boolean first=false;
             for (Operation answer : operations) {
-                writer.print("[mod] ");
-                writer.print(answer.mod);
+                if(first ==true){
+                    writer.println();
+                    writer.println();
+                }
+                first = true;
+                writer.print("[mod]		");
+                writer.print(answer.p);
+                writer.println();
                 printType(answer, writer);
+                if(answer.f == null && answer.type == OperationType.Display){
+                    writer.print("[f]		");
+                    writer.print("{}");
+                    writer.println();
+                    writer.print("[answer] 0");
+                }
                 if(answer.f != null){
-                    writer.println("[f] ");
+                    writer.print("[f]		");
                     writer.print(intToStr(answer.f));
                 }
                 if(answer.g != null){
-                    writer.println("[g] ");
+                    writer.println();
+                    writer.print("[g]		");
                     writer.print(intToStr(answer.g));                            
                 }
                 if(answer.h !=null ) {
-                    writer.println("[h] ");
+                    writer.println();
+                    writer.print("[h]		");
                     writer.print(intToStr(answer.h));
                 }
-                if(answer.answer != null){
-                    writer.println("[answer] ");
-                    writer.print(answer.answerstring);
+                if(answer.answer != null && answer.type != OperationType.LongDiv){
+                    writer.println();
+                    writer.print("[answer]		");
+                    Operation o = new Operation();
+                    o.type = OperationType.Display;
+                    o.f = answer.answer;
+                    Calculator.doCalculation(o);
+                    writer.print(o.answerstring);
                 }
                 if(answer.answera != null){
-                    writer.println("[answr-a] ");
+                    writer.println();
+                    writer.print("[answ-a]		");
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answera;
@@ -49,7 +70,8 @@ public class OutputWriter {
                     writer.print(o.answerstring);
                 }
                 if(answer.answerb != null){
-                    writer.println("[answr-b] ");
+                    writer.println();
+                    writer.print("[answ-b]		");
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerb;
@@ -57,7 +79,8 @@ public class OutputWriter {
                     writer.print(o.answerstring);
                 }
                 if(answer.answerd != null){
-                    writer.println("[answr-d] ");
+                    writer.println();
+                    writer.print("[answ-d]		");
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerd;
@@ -65,36 +88,49 @@ public class OutputWriter {
                     writer.print(o.answerstring);
                 }
                 if(answer.answerq != null){
-                    writer.println("[answr-q] ");
+                    writer.println();
+                    writer.print("[answ-q]		");
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerq;
                     Calculator.doCalculation(o);
-                    writer.print(o.answer);
+                    writer.print(o.answerstring);
                 }
                 if(answer.answerr != null){
-                    writer.println("[answr-r] ");
+                    writer.println();
+                    writer.print("[answ-r]		");
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerr;
                     Calculator.doCalculation(o);
-                    writer.print(o.answer);
+                    writer.print(o.answerstring);
                 }
                 if(answer.type == OperationType.EqualsPolyMod || answer.type == OperationType.Irreducible){
-                    writer.println("[answer] ");
+                    writer.println();
+                    writer.print("[answer]		");
                     if(answer.answerboolean){
                         writer.print("TRUE");
                     } else writer.print("FALSE");
                 }
                 
-                if(answer.type == OperationType.LongDiv && answer.g.length == 0 && answer.g[0] == 0){
-                    writer.println("[answer-q] " + "ERROR");
-                    writer.println("[answer-r] " + "ERROR");
+                if(answer.type == OperationType.LongDiv && answer.g.length == 1 && answer.g[0] == 0){
+                    writer.println();
+                    writer.print("[answ-q] " + "ERROR");
+                    writer.println();
+                    writer.print("[answ-r] " + "ERROR");
+                }
+                if(answer.type == OperationType.DivisionField && answer.b == null){
+                    writer.println();
+                    writer.print("[answer] " + "ERROR");
+                }
+                if(answer.answerstring != null && !answer.answerstring.equals("{}")){
+                    writer.println();
+                    writer.print("[answer]		" + answer.answerstring);
                 }
                 
                 
-                
             }
+            writer.close();
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

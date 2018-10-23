@@ -102,6 +102,9 @@ public class InputReader {
                         o.type = OperationType.FindPrim;
                         break;
                     case "[f]":
+                        //System.out.println(o.type);
+                        //String test = sc.next();
+                        //System.out.println(test);
                         o.f = strToInt(sc.next());
                         break;
                     case "[g]":
@@ -111,7 +114,7 @@ public class InputReader {
                         o.h = strToInt(sc.next());
                         break;
                     case "[deg]":
-                        o.degree = Integer.valueOf(sc.next());
+                        o.d = Integer.valueOf(sc.next());
                         break;
                     case "[a]":
                         o.a = strToInt(sc.next());
@@ -130,13 +133,36 @@ public class InputReader {
         if(str.length() == 2){
             return null;
         }
-        int[] array = new int[(int) str.length()/2];
+        //find array length
+        int arrLen=1;
+        for(int i=0; i< str.length();i++){
+            if(String.valueOf(str.charAt(i)).equals(",")){
+                arrLen++;
+            }
+        }
+        int[] array = new int[arrLen];
+        
+        int posInArray=0;
         for(int i=0; i< str.length();i++){
             if(!String.valueOf(str.charAt(i)).equals("{") && !String.valueOf(str.charAt(i)).equals("}") && !String.valueOf(str.charAt(i)).equals(",")){
+                boolean negative = false;
                 if(String.valueOf(str.charAt(i)).equals("-")){
                     i++;
+                    negative = true;
                 }
-                array[(int) i /2] = Integer.parseInt("-" + String.valueOf(str.charAt(i)));
+                String str1 = String.valueOf(str.charAt(i));
+                while(!String.valueOf(str.charAt(i+1)).equals(",") && !String.valueOf(str.charAt(i+1)).equals("}")){
+                    str1 = str1+str.charAt(i+1);
+                    i++;
+                }
+                if(negative){
+                    str1 = "-" + str1;
+                }
+                //System.out.println("Viewed as " + str1);
+                array[posInArray] = Integer.parseInt(str1);
+                //System.out.println("Converted to "+ array[posInArray]);
+                posInArray++;
+                
             }
         }
         return array;

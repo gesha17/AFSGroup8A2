@@ -23,7 +23,7 @@ public class EqualsPolyModCalculator extends Calculator {
 
         //subtract f from g and see if the result is 0 (or a multiple of h since we're reducing by h)
         int[] result = sub(f, g, p); 
-        if (h.length > 0)	{
+        if (h != null)	{
         result = div(result, h, p, "r");
         }
         if (Arrays.equals(result, zero))	{

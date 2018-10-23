@@ -26,6 +26,8 @@ public class DivisionFieldCalculator extends Calculator {
     
     @Override
     void calculate() {
-        o.answer = doDivisionField(o.a, o.b, o.p, o.modPoly);
+        if(o.b == null){
+            //impossible division by 0
+        } else o.answer = doDivisionField(o.a, o.b, o.p, o.modPoly);
     }
 }
