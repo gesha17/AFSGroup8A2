@@ -88,9 +88,13 @@ public class LongDivCalculator extends Calculator {
 
     @Override
     void calculate() {
-        o.answer = longDivision(o.f, o.g, o.p);
-        o.answerq = removeLeadingZeros(quot);
-        o.answerr= removeLeadingZeros(rem);
+        if(o.g.length == 1 && o.g[0] == 0){
+            //Impossible division by zero
+        } else {
+            o.answer = longDivision(o.f, o.g, o.p);
+            o.answerq = removeLeadingZeros(quot);
+            o.answerr= removeLeadingZeros(rem);
+        }
     }
     
 }

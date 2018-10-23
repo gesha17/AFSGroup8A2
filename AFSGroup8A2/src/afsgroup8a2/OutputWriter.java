@@ -87,6 +87,11 @@ public class OutputWriter {
                     } else writer.print("FALSE");
                 }
                 
+                if(answer.type == OperationType.LongDiv && answer.g.length == 0 && answer.g[0] == 0){
+                    writer.println("[answer-q] " + "ERROR");
+                    writer.println("[answer-r] " + "ERROR");
+                }
+                
                 
                 
             }

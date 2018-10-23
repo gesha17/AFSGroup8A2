@@ -36,7 +36,7 @@ public class InputReader {
                             operations.add(o);
                         }
                         o = new Operation();
-                        o.mod = Integer.valueOf(sc.next());
+                        o.p = Integer.valueOf(sc.next());
                         break;
                     case "[display-poly]":
                         o.type = OperationType.Display;
