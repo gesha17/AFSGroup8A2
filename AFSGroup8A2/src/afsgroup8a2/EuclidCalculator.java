@@ -40,7 +40,14 @@ public class EuclidCalculator extends Calculator {
     		v = sub(y2, mul(q, v, p), p);
     	}
     
-    	//TODO deal with negative numbers
+    	//deal with negative numbers or non-monic polynomials
+    	a = removeLeadingZeros(a);
+    	if (a[0] != 1)	{
+    		int[] firstCoefficient = {a[0]};
+    		x = div(x, firstCoefficient, p, "q");
+    		y = div(y, firstCoefficient, p, "q");
+    		a = div(a, firstCoefficient, p, "q");
+    	}
     	
     	//pass answers to operator object
     	o.answera = removeLeadingZeros(x);
