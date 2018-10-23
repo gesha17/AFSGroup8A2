@@ -214,7 +214,9 @@ public abstract class Calculator {
         if(o.type == null) throw new IllegalStateException("Type of operation cannot be null");
         switch(o.type){
             case Display:
-                new DisplayPoly(o).calculate();
+                if(o.f == null){
+                    o.answerstring = "{}";
+                }else new DisplayPoly(o).calculate();
                 break;
             case Add:
                 new AdditionCalculator(o).calculate();

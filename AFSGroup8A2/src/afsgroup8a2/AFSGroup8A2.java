@@ -20,6 +20,11 @@ public class AFSGroup8A2 {
         InputReader reader = new InputReader();
     	ArrayList<Operation> operations = reader.getInput();
         for(Operation o : operations){
+            System.out.println(o.type);
+            printArray(o.f);
+            if(o.g!= null){
+                printArray(o.g);
+            }
             Calculator.doCalculation(o);
         }
         OutputWriter writer = new OutputWriter();
@@ -29,8 +34,8 @@ public class AFSGroup8A2 {
     
     public static void main(String[] args) {
         AFSGroup8A2 program = new AFSGroup8A2();
-        //program.init();
-        program.test();
+        program.init();
+        //program.test();
     }
     
     void test(){
@@ -47,6 +52,20 @@ public class AFSGroup8A2 {
     	o.type = OperationType.FindIrred;
     	Calculator.doCalculation(o);
     	System.out.println(Arrays.toString(o.answer));
+    }
+    
+    void printArray(int[] arr){
+        if(arr != null){
+            System.out.print("[");
+            for(int i=0; i< arr.length;i++){
+                System.out.print(arr[i]);
+                if(i != arr.length-1){
+                    System.out.print(",");
+                }
+            }
+            System.out.print("]");
+            System.out.println();
+        }
     }
     
 }

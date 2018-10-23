@@ -133,7 +133,10 @@ public class InputReader {
         int[] array = new int[(int) str.length()/2];
         for(int i=0; i< str.length();i++){
             if(!String.valueOf(str.charAt(i)).equals("{") && !String.valueOf(str.charAt(i)).equals("}") && !String.valueOf(str.charAt(i)).equals(",")){
-                array[(int) i /2] = Integer.valueOf(str.charAt(i));
+                if(String.valueOf(str.charAt(i)).equals("-")){
+                    i++;
+                }
+                array[(int) i /2] = Integer.parseInt("-" + String.valueOf(str.charAt(i)));
             }
         }
         return array;
