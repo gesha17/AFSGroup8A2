@@ -98,17 +98,17 @@
 [euclid-poly]
 [f]		{1,1,1}
 [g]		{2,-2}
-[answ-a]		1
-[answ-b]		3X+6
-[answ-d]		3
+[answ-a]		5
+[answ-b]		X+2
+[answ-d]		1
 
 [mod]		7
 [euclid-poly]
 [f]		{1,0,1}
 [g]		{1,0,0,1}
-[answ-a]		6X^2+6X+1
-[answ-b]		X+1
-[answ-d]		2
+[answ-a]		3X^2+3X+4
+[answ-b]		4X+4
+[answ-d]		1
 
 [mod]		2
 [euclid-poly]
@@ -130,9 +130,9 @@
 [euclid-poly]
 [f]		{2,2,2}
 [g]		{0}
-[answ-a]		1
+[answ-a]		4
 [answ-b]		0
-[answ-d]		2X^2+2X+2
+[answ-d]		X^2+X+1
 
 [mod]		7
 [equals-poly-mod]
@@ -153,6 +153,7 @@
 [f]		{1,1,1}
 [g]		{-3}
 [answer]		FALSE
+[h]		{}
 
 [mod]		2
 [irreducible]
@@ -172,12 +173,12 @@
 [mod]		2
 [find-irred]
 
-[answer]		X^3+X^2+1
+[answer]		X^3+X+1
 
 [mod]		2
 [find-irred]
 
-[answer]		X^4+X^3+1
+[answer]		X^4+X^3+X^2+X+1
 
 [mod]		2
 [mod-poly] 
@@ -295,10 +296,10 @@
 [mod-poly] 
 {1,0,6}[find-prim]
 
-[answer]		4X+4
+[answer]		0
 
 [mod]		7
 [mod-poly] 
 {1,0,1}[find-prim]
 
-[answer]		X+5
+[answer]		4X+6

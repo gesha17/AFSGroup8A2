@@ -31,6 +31,11 @@ public class OutputWriter {
                 writer.print(answer.p);
                 writer.println();
                 printType(answer, writer);
+                if(answer.type == OperationType.Irreducible){
+                    writer.println();
+                    writer.print("[deg]		" + answer.degree);
+                    
+                }
                 if(answer.f == null && answer.type == OperationType.Display){
                     writer.print("[f]		");
                     writer.print("{}");
@@ -50,6 +55,10 @@ public class OutputWriter {
                     writer.println();
                     writer.print("[h]		");
                     writer.print(intToStr(answer.h));
+                }
+                if(answer.type == OperationType.EqualsPolyMod && answer.h == null){
+                    writer.println();
+                    writer.print("[h]		{}");
                 }
                 if(answer.answer != null && answer.type != OperationType.LongDiv){
                     writer.println();
