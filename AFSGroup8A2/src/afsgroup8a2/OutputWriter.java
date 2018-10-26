@@ -26,15 +26,16 @@ public class OutputWriter {
                     writer.println();
                     writer.println();
                 }
+                if(answer.type == OperationType.AddTable){
+                    tableToStr(answer.answertable);
+                }
                 first = true;
                 writer.print("[mod]		");
                 writer.print(answer.p);
                 writer.println();
                 printType(answer, writer);
-                if(answer.type == OperationType.Irreducible){
-                    writer.println();
-                    writer.print("[deg]		" + answer.degree);
-                    
+                if(answer.type == OperationType.FindIrred){
+                    writer.print("[deg]		" + answer.d);
                 }
                 if(answer.f == null && answer.type == OperationType.Display){
                     writer.print("[f]		");
@@ -136,6 +137,15 @@ public class OutputWriter {
                     writer.println();
                     writer.print("[answer]		" + answer.answerstring);
                 }
+                if(answer.answertable != null){
+                    writer.println();
+                    writer.print("[answer]		" + tableToStr(answer.answertable));
+                }
+                
+                if(answer.a != null){
+                    writer.println();
+                    writer.print("[a]		" + intToStr(answer.a));
+                }
                 
                 
             }
@@ -176,59 +186,70 @@ public class OutputWriter {
                 writer.println("[equals-poly-mod]");
                 break;
             case AddTable:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[add-table]");
+                writer.println();
+                writer.print("[add-table]");
                 break;
             case MultTable:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[mult-table]");
+                writer.println();
+                writer.print("[mult-table]");
                 break;
             case DisplayField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[display-field]");
+                writer.println();
+                writer.print("[display-field]");
                 break;
             case AddField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
+                writer.println();
                 writer.println("[add-field]");
                 break;
             case SubtractField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[subtract-field]");
+                writer.println();
+                writer.print("[subtract-field]");
                 break;
             case MultField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[mult-field]");
+                writer.println();
+                writer.print("[mult-field]");
                 break;
             case InverseField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[inverse-field]");
+                writer.println();
+                writer.print("[inverse-field]");
                 break;
             case DivisionField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[division-field]");
+                writer.println();
+                writer.print("[division-field]");
                 break;
             case EqualsField:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[equals-field]");
+                writer.println();
+                writer.print("[equals-field]");
                 break;
             case Primitive:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[primitive]");
+                writer.println();
+                writer.print("[primitive]");
                 break;
             case FindPrim:
-                writer.println("[mod-poly] ");
+                writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
-                writer.println("[find-prim]");
+                writer.println();
+                writer.print("[find-prim]");
                 break;
         }
     }
@@ -242,6 +263,28 @@ public class OutputWriter {
             }
         }
         str = str + "}";
+        return str;
+    }
+    
+    private String tableToStr(int[][][] arr){
+        System.out.println("Printing");
+        String str = "{";
+        for(int i=0; i< arr.length; i++){
+            for(int j=0; j< arr[i].length; j++){
+                for(int k =0; k< arr[i][j].length; k++){
+                    System.out.print(arr[i][j][k]);
+                    str = str + String.valueOf(arr[i][j][k]) + ", " ;
+                }
+            }
+        }
+        str = str + "}";
+        System.out.println();
+        for(int j=0; j< arr[0].length; j++){
+            for(int k =0; k< arr[0][j].length; k++){
+                System.out.print(arr[0][j][k]);
+            }
+        }
+        System.out.println(arr.length + " " + arr[0].length + " " + arr[0][0].length);
         return str;
     }
     

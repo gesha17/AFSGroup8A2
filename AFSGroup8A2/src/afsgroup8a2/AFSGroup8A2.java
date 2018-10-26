@@ -20,14 +20,7 @@ public class AFSGroup8A2 {
         InputReader reader = new InputReader();
     	ArrayList<Operation> operations = reader.getInput();
         for(Operation o : operations){
-            if(o.type == OperationType.LongDiv){
-                printArray(o.f);
-            }
             Calculator.doCalculation(o);
-                        if(o.type == OperationType.LongDiv){
-                printArray(o.f);
-            }
-
         }
         OutputWriter writer = new OutputWriter();
         writer.writeOutput(operations);
