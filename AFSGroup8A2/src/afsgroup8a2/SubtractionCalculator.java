@@ -21,12 +21,8 @@ public class SubtractionCalculator extends Calculator {
 
     //subtracts y from x modulo integer p
     int[] subPolynomials(int[] x, int[] y, int p) {
-    	y = flipSigns(y);
-    	Operation oNew = o;
-    	oNew.g = y;
-    	oNew.type = OperationType.Add;
-    	Calculator.doCalculation(oNew);
-    	return oNew.answer;
+    	int[] y2 = flipSigns(y);
+    	return add(x, y2, p);
     }
     
     @Override
