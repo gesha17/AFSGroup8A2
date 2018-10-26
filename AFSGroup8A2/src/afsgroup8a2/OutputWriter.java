@@ -57,6 +57,18 @@ public class OutputWriter {
                     writer.print("[h]		");
                     writer.print(intToStr(answer.h));
                 }
+                if(answer.a != null){
+                    writer.println();
+                    writer.print("[a]		" + intToStr(answer.a));
+                }
+                if(answer.b != null){
+                    writer.println();
+                    writer.print("[b]		" + intToStr(answer.b));
+                }
+                if(answer.type == OperationType.DivisionField && answer.b == null){
+                    writer.println();
+                    writer.print("[b]		{}");
+                }
                 if(answer.type == OperationType.EqualsPolyMod && answer.h == null){
                     writer.println();
                     writer.print("[h]		{}");
@@ -135,17 +147,23 @@ public class OutputWriter {
                 }
                 if(answer.answerstring != null && !answer.answerstring.equals("{}")){
                     writer.println();
-                    writer.print("[answer]		" + answer.answerstring);
+                    writer.print("[answer]	" + answer.answerstring);
                 }
                 if(answer.answertable != null){
                     writer.println();
-                    writer.print("[answer]		" + tableToStr(answer.answertable));
+                    writer.print("[answer]	" + tableToStr(answer.answertable));
+                }
+                if(answer.type == OperationType.InverseField && answer.answer == null){
+                    writer.println();
+                    writer.print("[answer] ERROR");
+                }
+                if(answer.type == OperationType.EqualsField || answer.type == OperationType.Primitive){
+                    writer.println();
+                    if(answer.answerboolean){
+                        writer.print("[answer] TRUE");
+                    } else writer.print("[answer] FALSE");
                 }
                 
-                if(answer.a != null){
-                    writer.println();
-                    writer.print("[a]		" + intToStr(answer.a));
-                }
                 
                 
             }
@@ -207,7 +225,7 @@ public class OutputWriter {
                 writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
                 writer.println();
-                writer.println("[add-field]");
+                writer.print("[add-field]");
                 break;
             case SubtractField:
                 writer.print("[mod-poly]	");
@@ -219,7 +237,7 @@ public class OutputWriter {
                 writer.print("[mod-poly]	");
                 writer.print(intToStr(answer.modPoly));
                 writer.println();
-                writer.print("[mult-field]");
+                writer.print("[multiply-field]");
                 break;
             case InverseField:
                 writer.print("[mod-poly]	");
@@ -269,22 +287,17 @@ public class OutputWriter {
     private String tableToStr(int[][][] arr){
         System.out.println("Printing");
         String str = "{";
-        for(int i=0; i< arr.length; i++){
-            for(int j=0; j< arr[i].length; j++){
-                for(int k =0; k< arr[i][j].length; k++){
-                    System.out.print(arr[i][j][k]);
-                    str = str + String.valueOf(arr[i][j][k]) + ", " ;
+        for(int[][] elements: arr){
+            for(int i=0; i< elements.length; i++){
+                str = str + Calculator._display(elements[i]);
+                if(i != elements.length-1){
+                    str = str + ", ";
                 }
             }
+            str = str + "; ";
         }
+        str = str.substring(0, str.length()-2);
         str = str + "}";
-        System.out.println();
-        for(int j=0; j< arr[0].length; j++){
-            for(int k =0; k< arr[0][j].length; k++){
-                System.out.print(arr[0][j][k]);
-            }
-        }
-        System.out.println(arr.length + " " + arr[0].length + " " + arr[0][0].length);
         return str;
     }
     

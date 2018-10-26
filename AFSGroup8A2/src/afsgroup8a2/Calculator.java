@@ -149,6 +149,13 @@ public abstract class Calculator {
     	Calculator.doCalculation(o);
     	return o.answerstring;
     }
+    static String _display(int[] f)	{
+    	Operation o = new Operation();
+    	o.f = f;
+    	o.type = OperationType.Display;
+    	Calculator.doCalculation(o);
+    	return o.answerstring;
+    }
     
     int degree(int[] a)	{
     	a = removeLeadingZeros(a);
