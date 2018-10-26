@@ -285,7 +285,6 @@ public class OutputWriter {
     }
     
     private String tableToStr(int[][][] arr){
-        System.out.println("Printing");
         String str = "{";
         for(int[][] elements: arr){
             for(int i=0; i< elements.length; i++){

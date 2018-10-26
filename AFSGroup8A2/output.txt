@@ -1,37 +1,37 @@
 [mod]		7
 [display-poly]
 [f]		{1,2,6}
-[answer]		X^2+2X+6
+[answer]	X^2+2X+6
 
 [mod]		5
 [display-poly]
 [f]		{1,2,6}
-[answer]		X^2+2X+6
+[answer]	X^2+2X+6
 
 [mod]		7
 [display-poly]
 [f]		{1,2,0}
-[answer]		X^2+2X
+[answer]	X^2+2X
 
 [mod]		7
 [display-poly]
 [f]		{1,2,7}
-[answer]		X^2+2X+7
+[answer]	X^2+2X+7
 
 [mod]		7
 [display-poly]
 [f]		{0,1,2,0}
-[answer]		X^2+2X
+[answer]	X^2+2X
 
 [mod]		7
 [display-poly]
 [f]		{-1,0,1,3}
-[answer]		-X^3+X+3
+[answer]	-X^3+X+3
 
 [mod]		7
 [display-poly]
 [f]		{0,1,10,-1,0,2,3}
-[answer]		X^5+10X^4-X^3+2X+3
+[answer]	X^5+10X^4-X^3+2X+3
 
 [mod]		7
 [display-poly]
@@ -41,7 +41,7 @@
 [mod]		7
 [display-poly]
 [f]		{0,0}
-[answer]		0
+[answer]	0
 
 [mod]		7
 [add-poly]
@@ -183,40 +183,40 @@
 [mod]		2
 [mod-poly]	{1,1,1}
 [add-table]
-[answer]		{0, 1, X, X+1; 1, 0, X+1, X; X, X+1, 0, 1; X+1, X, 1, 0}
+[answer]	{0, 1, X, X+1; 1, 0, X+1, X; X, X+1, 0, 1; X+1, X, 1, 0}
 
 [mod]		2
 [mod-poly]	{1,1,1}
 [mult-table]
-[answer]		{0, 0, 0, 0; 0, 1, X, X+1; 0, X, X+1, 1; 0, X+1, 1, X}
+[answer]	{0, 0, 0, 0; 0, 1, X, X+1; 0, X, X+1, 1; 0, X+1, 1, X}
 
 [mod]		7
 [mod-poly]	{1,0}
 [add-table]
-[answer]		{0, 1, 2, 3, 4, 5, 6; 1, 2, 3, 4, 5, 6, 0; 2, 3, 4, 5, 6, 0, 1; 3, 4, 5, 6, 0, 1, 2; 4, 5, 6, 0, 1, 2, 3; 5, 6, 0, 1, 2, 3, 4; 6, 0, 1, 2, 3, 4, 5}
+[answer]	{0, 1, 2, 3, 4, 5, 6; 1, 2, 3, 4, 5, 6, 0; 2, 3, 4, 5, 6, 0, 1; 3, 4, 5, 6, 0, 1, 2; 4, 5, 6, 0, 1, 2, 3; 5, 6, 0, 1, 2, 3, 4; 6, 0, 1, 2, 3, 4, 5}
 
 [mod]		7
 [mod-poly]	{1,0}
 [mult-table]
-[answer]		{0, 0, 0, 0, 0, 0, 0; 0, 1, 2, 3, 4, 5, 6; 0, 2, 4, 6, 1, 3, 5; 0, 3, 6, 2, 5, 1, 4; 0, 4, 1, 5, 2, 6, 3; 0, 5, 3, 1, 6, 4, 2; 0, 6, 5, 4, 3, 2, 1}
+[answer]	{0, 0, 0, 0, 0, 0, 0; 0, 1, 2, 3, 4, 5, 6; 0, 2, 4, 6, 1, 3, 5; 0, 3, 6, 2, 5, 1, 4; 0, 4, 1, 5, 2, 6, 3; 0, 5, 3, 1, 6, 4, 2; 0, 6, 5, 4, 3, 2, 1}
 
 [mod]		5
 [mod-poly]	{1,0,2}
 [display-field]
 [a]		{1,1}
-[answer]		X+1
+[answer]	X+1
 
 [mod]		5
 [mod-poly]	{1,0,2}
 [display-field]
 [a]		{1,0,0}
-[answer]		3
+[answer]	3
 
 [mod]		7
 [mod-poly]	{2,-2}
 [display-field]
 [a]		{1,1,1}
-[answer]		3
+[answer]	3
 
 [mod]		2
 [mod-poly]	{1,1,1}
@@ -308,7 +308,12 @@
 [mod]		7
 [mod-poly]	{1,0,6}
 [find-prim]
-[answer]		4X+3
+[answer]		X+6
+
+[mod]		7
+[mod-poly]	{1,0,1}
+[find-prim]
+[answer]		6X+3
 
 [mod]		7
 [mod-poly]	{1,0,1}

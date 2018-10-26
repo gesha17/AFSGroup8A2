@@ -123,6 +123,7 @@ public class InputReader {
                         o.b = strToInt(sc.next());
                 }
             }
+        operations.add(o);
         }
         return operations;
     }

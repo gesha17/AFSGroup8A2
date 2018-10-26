@@ -21,6 +21,7 @@ public class AFSGroup8A2 {
     	ArrayList<Operation> operations = reader.getInput();
         for(Operation o : operations){
             Calculator.doCalculation(o);
+            System.out.println(o.type);
         }
         OutputWriter writer = new OutputWriter();
         writer.writeOutput(operations);
