@@ -73,14 +73,30 @@ public class OutputWriter {
                     writer.println();
                     writer.print("[h]		{}");
                 }
+                
                 if(answer.answer != null && answer.type != OperationType.LongDiv){
-                    writer.println();
-                    writer.print("[answer]		");
-                    Operation o = new Operation();
-                    o.type = OperationType.Display;
-                    o.f = answer.answer;
-                    Calculator.doCalculation(o);
-                    writer.print(o.answerstring);
+                    if(isFieldOperation(answer.type)){
+                        if(isIrreducible(answer)){
+                            writer.println();
+                            writer.print("[answer]		");
+                            Operation o = new Operation();
+                            o.type = OperationType.Display;
+                            o.f = answer.answer;
+                            Calculator.doCalculation(o);
+                            writer.print(o.answerstring);
+                        } else {
+                            writer.println();
+                            writer.print("[answer] ERROR");
+                        }
+                    } else {
+                        writer.println();
+                        writer.print("[answer]		");
+                        Operation o = new Operation();
+                        o.type = OperationType.Display;
+                        o.f = answer.answer;
+                        Calculator.doCalculation(o);
+                        writer.print(o.answerstring);
+                    }
                 }
                 if(answer.answera != null){
                     writer.println();
@@ -298,6 +314,28 @@ public class OutputWriter {
         str = str.substring(0, str.length()-2);
         str = str + "}";
         return str;
+    }
+    
+    boolean isFieldOperation(OperationType type){
+        if(type == OperationType.AddField ||
+                type == OperationType.MultField ||
+                type == OperationType.InverseField ||
+                type == OperationType.SubtractField ||
+                type == OperationType.FindPrim ||
+                type == OperationType.Primitive ||
+                type == OperationType.EqualsField ||
+                type == OperationType.DivisionField){
+                return true;
+        } else return false;
+    }
+    
+    boolean isIrreducible(Operation answer){
+        Operation newAns = new Operation();
+        newAns.type = OperationType.Irreducible;
+        newAns.f = answer.modPoly;
+        newAns.p = answer.p;
+        Calculator.doCalculation(newAns);
+        return newAns.answerboolean;
     }
     
 }

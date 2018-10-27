@@ -50,7 +50,7 @@
 [answer]		2X^3+X^2+6X+3
 
 [mod]		7
-[add-poly]
+[subtract-poly]
 [f]		{1,2,3}
 [g]		{-2,-3,-4,0}
 [answer]		5X^3+5X^2+5X+3
@@ -178,7 +178,7 @@
 [mod]		2
 [find-irred]
 [deg]		4
-[answer]		X^4+X^3+X^2+X+1
+[answer]		X^4+X^3+1
 
 [mod]		2
 [mod-poly]	{1,1,1}
@@ -308,14 +308,14 @@
 [mod]		7
 [mod-poly]	{1,0,6}
 [find-prim]
-[answer]		X+6
+[answer] ERROR
 
 [mod]		7
 [mod-poly]	{1,0,1}
 [find-prim]
-[answer]		6X+3
+[answer]		X+3
 
 [mod]		7
 [mod-poly]	{1,0,1}
 [find-prim]
-[answer]		3X+1
+[answer]		5X+1
