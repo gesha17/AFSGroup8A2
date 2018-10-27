@@ -27,7 +27,7 @@ public class OutputWriter {
                     writer.println();
                 }
                 if(answer.type == OperationType.AddTable){
-                    tableToStr(answer.answertable);
+                    tableToStr(answer.answertable, answer.p);
                 }
                 first = true;
                 writer.print("[mod]		");
@@ -82,6 +82,7 @@ public class OutputWriter {
                             Operation o = new Operation();
                             o.type = OperationType.Display;
                             o.f = answer.answer;
+                            o.p = answer.p;
                             Calculator.doCalculation(o);
                             writer.print(o.answerstring);
                         } else {
@@ -94,6 +95,7 @@ public class OutputWriter {
                         Operation o = new Operation();
                         o.type = OperationType.Display;
                         o.f = answer.answer;
+                        o.p = answer.p;
                         Calculator.doCalculation(o);
                         writer.print(o.answerstring);
                     }
@@ -104,6 +106,7 @@ public class OutputWriter {
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answera;
+                    o.p = answer.p;
                     Calculator.doCalculation(o);
                     writer.print(o.answerstring);
                 }
@@ -113,6 +116,7 @@ public class OutputWriter {
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerb;
+                    o.p = answer.p;
                     Calculator.doCalculation(o);
                     writer.print(o.answerstring);
                 }
@@ -122,6 +126,7 @@ public class OutputWriter {
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerd;
+                    o.p = answer.p;
                     Calculator.doCalculation(o);
                     writer.print(o.answerstring);
                 }
@@ -131,6 +136,7 @@ public class OutputWriter {
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerq;
+                    o.p = answer.p;
                     Calculator.doCalculation(o);
                     writer.print(o.answerstring);
                 }
@@ -140,6 +146,7 @@ public class OutputWriter {
                     Operation o = new Operation();
                     o.type = OperationType.Display;
                     o.f = answer.answerr;
+                    o.p = answer.p;
                     Calculator.doCalculation(o);
                     writer.print(o.answerstring);
                 }
@@ -167,7 +174,7 @@ public class OutputWriter {
                 }
                 if(answer.answertable != null){
                     writer.println();
-                    writer.print("[answer]	" + tableToStr(answer.answertable));
+                    writer.print("[answer]	" + tableToStr(answer.answertable, answer.p));
                 }
                 if(answer.type == OperationType.InverseField && answer.answer == null){
                     writer.println();
@@ -300,11 +307,11 @@ public class OutputWriter {
         return str;
     }
     
-    private String tableToStr(int[][][] arr){
+    private String tableToStr(int[][][] arr, int p){
         String str = "{";
         for(int[][] elements: arr){
             for(int i=0; i< elements.length; i++){
-                str = str + Calculator._display(elements[i]);
+                str = str + Calculator._display(elements[i], p);
                 if(i != elements.length-1){
                     str = str + ", ";
                 }

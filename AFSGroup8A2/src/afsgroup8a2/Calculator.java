@@ -150,9 +150,10 @@ public abstract class Calculator {
     	Calculator.doCalculation(o);
     	return o.answerstring;
     }
-    static String _display(int[] f)	{
+    static String _display(int[] f, int p)	{
     	Operation o = new Operation();
     	o.f = f;
+        o.p = p;
     	o.type = OperationType.Display;
     	Calculator.doCalculation(o);
     	return o.answerstring;
