@@ -142,9 +142,10 @@ public abstract class Calculator {
     	return o.answer;
     }
     
-    String display(int[] f)	{
+    String display(int[] f, int p)	{
     	Operation o = new Operation();
     	o.f = f;
+    	o.p = p;
     	o.type = OperationType.Display;
     	Calculator.doCalculation(o);
     	return o.answerstring;

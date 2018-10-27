@@ -15,7 +15,9 @@ public class DisplayPoly extends Calculator {
         super(o);
     }
 
-    String doDisplayPoly(int[] f)	{
+    String doDisplayPoly(int[] f, int p)	{
+    	int[] zero = {0};
+    	f = add(f, zero, p);
     	String result = "";
     	
     	//deals with the exception of not having an input
@@ -63,6 +65,6 @@ public class DisplayPoly extends Calculator {
     
     @Override
     void calculate() {
-        o.answerstring = doDisplayPoly(o.f);
+        o.answerstring = doDisplayPoly(o.f, o.p);
     }    
 }

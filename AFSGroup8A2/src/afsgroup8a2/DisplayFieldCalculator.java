@@ -18,7 +18,7 @@ public class DisplayFieldCalculator extends Calculator{
     //returns a (string) representative of a in field Fp[x]/modPoly
     String doDisplayField(int[] a, int p, int[] modPoly)	{
     	int[] reduction = div(a, modPoly, p, "r");
-    	return display(reduction);
+    	return display(reduction, p);
     }
     
     @Override
